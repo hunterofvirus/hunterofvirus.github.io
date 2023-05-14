@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication des variables</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Division des variables par 1,10</h1>
+    <form id="form">
+        <label for="machine">MACHINE :</label>
+        <input type="text" id="machine" required>
+        <label for="variable">Entrez une variable :</label>
+        <input type="number" step="any" id="variable" required>
+        <button type="submit">Ajouter</button>
+    </form>
+</br>
+</br>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>MACHINE</th>
+                <th>Variable</th>
+                <th>NET</th>
+                <th>Résultat X</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="results"></tbody>
+    </table>
+    <h2>Total chiffre d'affaire (Y) : <span id="total">0</span></h2>
+    <script src="script.js"></script>
+</body>
+</html>
