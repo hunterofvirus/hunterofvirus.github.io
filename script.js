@@ -8,6 +8,7 @@ const initialMachines = [
     "73169-BOUBOUYABOU Mic",
     "73179-DEDEGBE Boris",
     "77184-DALMEIDA C",
+    "TOVIESSI SIMON ( AGENCE T)",
 ];
 
 let total = 0;

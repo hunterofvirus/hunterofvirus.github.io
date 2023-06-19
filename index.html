@@ -1,48 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiplication des variables</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            text-align: center;
-            padding: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Calculateur Mensuel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: #336699;
+      margin: 0;
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #container {
+      margin: 0 auto;
+      width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+    }
+
+    #totals {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #totals td, #totals th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #totals th {
+      background-color: #f2f2f2;
+    }
+
+    #percentage-table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #percentage-table td, #percentage-table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #percentage-table th {
+      background-color: #f2f2f2;
+    }
+
+    #button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+    #calc-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #336699;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    #calc-button:hover {
+      background-color: #204f7a;
+    }
+  </style>
 </head>
 <body>
-    <h1>Division des variables par 1,10</h1>
-    <form id="form">
-        <label for="machine">MACHINE :</label>
-        <input type="text" id="machine" required>
-        <label for="variable">Entrez une variable :</label>
-        <input type="number" step="any" id="variable" required>
-        <button type="submit">Ajouter</button>
-    </form>
-</br>
-</br>
+    <h1>CENTRE DE JEUX HEVIE</h1>
+    <h2>COMMISSION SUR VENTES DES PRODUITS DE LA LNB DU MOIS D'AVRIL 2023</h2>
+    <h3>CONTRAT DE PRESTATION DE SERVICE DE LA LNB</h3>
+  <div id="container">
+   
+    
+    <label for="ca_pmu">CA PMU:</label>
+    <input type="text" id="ca_pmu" />
 
+    <label for="levrier_foot">LEVRIER-FOOT:</label>
+    <input type="text" id="levrier_foot" />
 
+    <label for="pari_foot_plr">PARI FOOT-PLR:</label>
+    <input type="text" id="pari_foot_plr" />
 
-    <table>
-        <thead>
-            <tr>
-                <th>MACHINE</th>
-                <th>Variable</th>
-                <th>NET</th>
-                <th>Résultat X</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="results"></tbody>
+    <label for="lstar">LStar:</label>
+    <input type="text" id="lstar" />
+
+    <label for="lfortune">LFortune:</label>
+    <input type="text" id="lfortune" />
+
+    <label for="lmtps">LMtps:</label>
+    <input type="text" id="lmtps" />
+
+    <table id="totals">
+      <tr>
+        <th>CA JEUX VIRTUEL</th>
+        <th>CA LOTO</th>
+        <th>TOTAUX GLOBAL DES CA BRUT </th>
+      </tr>
+      <tr>
+        <td id="ca_jeux_virtuel">0</td>
+        <td id="ca_loto">0</td>
+        <td id="total_global">0</td>
+      </tr>
     </table>
-    <h2>Total chiffre d'affaire (Y) : <span id="total">0</span></h2>
-    <script src="script.js"></script>
+
+    <script>
+      function calculateTotals() {
+        var ca_pmu = parseFloat(document.getElementById("ca_pmu").value) || 0;
+        var levrier_foot = parseFloat(document.getElementById("levrier_foot").value) || 0;
+        var pari_foot_plr = parseFloat(document.getElementById("pari_foot_plr").value) || 0;
+        var lstar = parseFloat(document.getElementById("lstar").value) || 0;
+        var lfortune = parseFloat(document.getElementById("lfortune").value) || 0;
+        var lmtps = parseFloat(document.getElementById("lmtps").value) || 0;
+
+        var ca_jeux_virtuel = levrier_foot + pari_foot_plr;
+        var ca_loto = lstar + lfortune + lmtps;
+        var total_global = ca_pmu + ca_jeux_virtuel + ca_loto;
+
+        document.getElementById("ca_jeux_virtuel").textContent = ca_jeux_virtuel.toFixed(2);
+        document.getElementById("ca_loto").textContent = ca_loto.toFixed(2);
+        document.getElementById("total_global").textContent = total_global.toFixed(2);
+
+        var ca_pmu_sur = (ca_pmu / 1.1).toFixed(2);
+        var ca_jeux_virtuel_sur = (ca_jeux_virtuel / 1.1).toFixed(2);
+        var ca_loto_sur = (ca_loto / 1.1).toFixed(2);
+
+        document.getElementById("ca_pmu_sur").textContent = ca_pmu_sur;
+        document.getElementById("ca_jeux_virtuel_sur").textContent = ca_jeux_virtuel_sur;
+        document.getElementById("ca_loto_sur").textContent = ca_loto_sur;
+      }
+
+      document.getElementById("ca_pmu").addEventListener("input", calculateTotals);
+      document.getElementById("levrier_foot").addEventListener("input", calculateTotals);
+      document.getElementById("pari_foot_plr").addEventListener("input", calculateTotals);
+      document.getElementById("lstar").addEventListener("input", calculateTotals);
+      document.getElementById("lfortune").addEventListener("input", calculateTotals);
+      document.getElementById("lmtps").addEventListener("input", calculateTotals);
+    </script>
+
+    <table id="percentage-table">
+      <tr>
+        <th>CA PMU SUR %</th>
+        <th>CA JEUX VIRTUEL SUR %</th>
+        <th>CA LOTO SUR %</th>
+      </tr>
+      <tr>
+        <td id="ca_pmu_sur">0</td>
+        <td id="ca_jeux_virtuel_sur">0</td>
+        <td id="ca_loto_sur">0</td>
+      </tr>
+    </table>
+
+    <div id="button-container">
+      <a href="agenceK.html" id="calc-button">CALCUL POUR LES MACHINES D'AUTRES AGENCES</a>
+    </div>
+  </div>
 </body>
 </html>
