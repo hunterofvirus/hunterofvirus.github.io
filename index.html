@@ -115,6 +115,25 @@
     <label for="lmtps">LMtps:</label>
     <input type="text" id="lmtps" />
 
+    <!-- Nouveaux jeux virtuels -->
+    <label for="foot_virtual_anc">FOOT VIRTUEL ANC:</label>
+    <input type="text" id="foot_virtual_anc" />
+
+    <label for="kiron">KIRON:</label>
+    <input type="text" id="kiron" />
+
+    <label for="foot_virtual">FOOT VIRTUEL:</label>
+    <input type="text" id="foot_virtual" />
+
+    <label for="course_chevaux">COURSE DE CHEVAUX:</label>
+    <input type="text" id="course_chevaux" />
+
+    <label for="moto_racing">MOTO RACING:</label>
+    <input type="text" id="moto_racing" />
+
+    <label for="parifoot_simple">PARIFOOT SIMPLE:</label>
+    <input type="text" id="parifoot_simple" />
+
     <table id="totals">
       <tr>
         <th>CA JEUX VIRTUEL</th>
@@ -128,45 +147,41 @@
       </tr>
     </table>
 
-   <script>
+<script>
   function calculateTotals() {
     var ca_pmu = parseFloat(document.getElementById("ca_pmu").value) || 0;
     var levrier_foot = parseFloat(document.getElementById("levrier_foot").value) || 0;
     var pari_foot_plr = parseFloat(document.getElementById("pari_foot_plr").value) || 0;
-    var lstar = parseFloat(document.getElementById("lstar").value) || 0;
-    var lfortune = parseFloat(document.getElementById("lfortune").value) || 0;
-    var lmtps = parseFloat(document.getElementById("lmtps").value) || 0;
+    var foot_virtual_anc = parseFloat(document.getElementById("foot_virtual_anc").value) || 0;
+    var kiron = parseFloat(document.getElementById("kiron").value) || 0;
+    var foot_virtual = parseFloat(document.getElementById("foot_virtual").value) || 0;
+    var course_chevaux = parseFloat(document.getElementById("course_chevaux").value) || 0;
+    var moto_racing = parseFloat(document.getElementById("moto_racing").value) || 0;
+    var parifoot_simple = parseFloat(document.getElementById("parifoot_simple").value) || 0;
+
     var ca_loto_sportif = parseFloat(document.getElementById("ca_loto_sportif").value) || 0;
 
-    var ca_jeux_virtuel = levrier_foot + pari_foot_plr;
-    var ca_loto = lstar + lfortune + lmtps + ca_loto_sportif;
+    var ca_jeux_virtuel = levrier_foot + pari_foot_plr + foot_virtual_anc + kiron + foot_virtual + course_chevaux + moto_racing + parifoot_simple;
+    var ca_loto = ca_loto_sportif;
     var total_global = ca_pmu + ca_jeux_virtuel + ca_loto;
 
     document.getElementById("ca_jeux_virtuel").textContent = ca_jeux_virtuel.toFixed(2);
     document.getElementById("ca_loto").textContent = ca_loto.toFixed(2);
     document.getElementById("total_global").textContent = total_global.toFixed(2);
-
-    var ca_pmu_sur = (ca_pmu / 1.1).toFixed(2);
-    var ca_jeux_virtuel_sur = (ca_jeux_virtuel / 1.1).toFixed(2);
-    var ca_loto_sur = (ca_loto / 1.1).toFixed(2);
-
-    document.getElementById("ca_pmu_sur").textContent = ca_pmu_sur;
-    document.getElementById("ca_jeux_virtuel_sur").textContent = ca_jeux_virtuel_sur;
-    document.getElementById("ca_loto_sur").textContent = ca_loto_sur;
-
-    // Calcul pour Loto Sportif
-    var ca_loto_sportif_sur = (ca_loto_sportif / 1.1).toFixed(2);
-    document.getElementById("ca_loto_sportif_sur").textContent = ca_loto_sportif_sur;
   }
 
   document.getElementById("ca_pmu").addEventListener("input", calculateTotals);
   document.getElementById("levrier_foot").addEventListener("input", calculateTotals);
   document.getElementById("pari_foot_plr").addEventListener("input", calculateTotals);
-  document.getElementById("lstar").addEventListener("input", calculateTotals);
-  document.getElementById("lfortune").addEventListener("input", calculateTotals);
-  document.getElementById("lmtps").addEventListener("input", calculateTotals);
-  document.getElementById("ca_loto_sportif").addEventListener("input", calculateTotals); // Écouteur pour Loto Sportif
+  document.getElementById("foot_virtual_anc").addEventListener("input", calculateTotals);
+  document.getElementById("kiron").addEventListener("input", calculateTotals);
+  document.getElementById("foot_virtual").addEventListener("input", calculateTotals);
+  document.getElementById("course_chevaux").addEventListener("input", calculateTotals);
+  document.getElementById("moto_racing").addEventListener("input", calculateTotals);
+  document.getElementById("parifoot_simple").addEventListener("input", calculateTotals);
+  document.getElementById("ca_loto_sportif").addEventListener("input", calculateTotals);
 </script>
+
 
     <table id="percentage-table">
       <tr>
