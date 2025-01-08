@@ -174,11 +174,14 @@
     var ca_pmu_sur = (ca_pmu / 1.1).toFixed(2);
     var ca_jeux_virtuel_sur = (ca_jeux_virtuel / 1.1).toFixed(2);
     var ca_loto_sur = (ca_loto / 1.1).toFixed(2);
+    var ca_loto_sportif_sur = (ca_loto_sportif / 1.1).toFixed(2);
+ 
 
     // Affichage des pourcentages ajustés
     document.getElementById("ca_pmu_sur").textContent = ca_pmu_sur;
     document.getElementById("ca_jeux_virtuel_sur").textContent = ca_jeux_virtuel_sur;
     document.getElementById("ca_loto_sur").textContent = ca_loto_sur;
+    document.getElementById("ca_loto_sportif_sur").textContent = ca_loto_sportif_sur;
   }
 
   document.getElementById("ca_pmu").addEventListener("input", calculateTotals);
