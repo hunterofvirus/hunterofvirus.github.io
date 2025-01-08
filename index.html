@@ -125,45 +125,53 @@
       </tr>
     </table>
 
-    <script>
-      function calculateTotals() {
-        var ca_pmu = parseFloat(document.getElementById("ca_pmu").value) || 0;
-        var levrier_foot = parseFloat(document.getElementById("levrier_foot").value) || 0;
-        var pari_foot_plr = parseFloat(document.getElementById("pari_foot_plr").value) || 0;
-        var lstar = parseFloat(document.getElementById("lstar").value) || 0;
-        var lfortune = parseFloat(document.getElementById("lfortune").value) || 0;
-        var lmtps = parseFloat(document.getElementById("lmtps").value) || 0;
+   <script>
+  function calculateTotals() {
+    var ca_pmu = parseFloat(document.getElementById("ca_pmu").value) || 0;
+    var levrier_foot = parseFloat(document.getElementById("levrier_foot").value) || 0;
+    var pari_foot_plr = parseFloat(document.getElementById("pari_foot_plr").value) || 0;
+    var lstar = parseFloat(document.getElementById("lstar").value) || 0;
+    var lfortune = parseFloat(document.getElementById("lfortune").value) || 0;
+    var lmtps = parseFloat(document.getElementById("lmtps").value) || 0;
+    var ca_loto_sportif = parseFloat(document.getElementById("ca_loto_sportif").value) || 0;
 
-        var ca_jeux_virtuel = levrier_foot + pari_foot_plr;
-        var ca_loto = lstar + lfortune + lmtps;
-        var total_global = ca_pmu + ca_jeux_virtuel + ca_loto;
+    var ca_jeux_virtuel = levrier_foot + pari_foot_plr;
+    var ca_loto = lstar + lfortune + lmtps + ca_loto_sportif;
+    var total_global = ca_pmu + ca_jeux_virtuel + ca_loto;
 
-        document.getElementById("ca_jeux_virtuel").textContent = ca_jeux_virtuel.toFixed(2);
-        document.getElementById("ca_loto").textContent = ca_loto.toFixed(2);
-        document.getElementById("total_global").textContent = total_global.toFixed(2);
+    document.getElementById("ca_jeux_virtuel").textContent = ca_jeux_virtuel.toFixed(2);
+    document.getElementById("ca_loto").textContent = ca_loto.toFixed(2);
+    document.getElementById("total_global").textContent = total_global.toFixed(2);
 
-        var ca_pmu_sur = (ca_pmu / 1.1).toFixed(2);
-        var ca_jeux_virtuel_sur = (ca_jeux_virtuel / 1.1).toFixed(2);
-        var ca_loto_sur = (ca_loto / 1.1).toFixed(2);
+    var ca_pmu_sur = (ca_pmu / 1.1).toFixed(2);
+    var ca_jeux_virtuel_sur = (ca_jeux_virtuel / 1.1).toFixed(2);
+    var ca_loto_sur = (ca_loto / 1.1).toFixed(2);
 
-        document.getElementById("ca_pmu_sur").textContent = ca_pmu_sur;
-        document.getElementById("ca_jeux_virtuel_sur").textContent = ca_jeux_virtuel_sur;
-        document.getElementById("ca_loto_sur").textContent = ca_loto_sur;
-      }
+    document.getElementById("ca_pmu_sur").textContent = ca_pmu_sur;
+    document.getElementById("ca_jeux_virtuel_sur").textContent = ca_jeux_virtuel_sur;
+    document.getElementById("ca_loto_sur").textContent = ca_loto_sur;
 
-      document.getElementById("ca_pmu").addEventListener("input", calculateTotals);
-      document.getElementById("levrier_foot").addEventListener("input", calculateTotals);
-      document.getElementById("pari_foot_plr").addEventListener("input", calculateTotals);
-      document.getElementById("lstar").addEventListener("input", calculateTotals);
-      document.getElementById("lfortune").addEventListener("input", calculateTotals);
-      document.getElementById("lmtps").addEventListener("input", calculateTotals);
-    </script>
+    // Calcul pour Loto Sportif
+    var ca_loto_sportif_sur = (ca_loto_sportif / 1.1).toFixed(2);
+    document.getElementById("ca_loto_sportif_sur").textContent = ca_loto_sportif_sur;
+  }
+
+  document.getElementById("ca_pmu").addEventListener("input", calculateTotals);
+  document.getElementById("levrier_foot").addEventListener("input", calculateTotals);
+  document.getElementById("pari_foot_plr").addEventListener("input", calculateTotals);
+  document.getElementById("lstar").addEventListener("input", calculateTotals);
+  document.getElementById("lfortune").addEventListener("input", calculateTotals);
+  document.getElementById("lmtps").addEventListener("input", calculateTotals);
+  document.getElementById("ca_loto_sportif").addEventListener("input", calculateTotals); // Écouteur pour Loto Sportif
+</script>
 
     <table id="percentage-table">
       <tr>
         <th>CA PMU SUR %</th>
         <th>CA JEUX VIRTUEL SUR %</th>
         <th>CA LOTO SUR %</th>
+            <th>CA LOTO SPORTIF SUR %</th> <!-- Nouvelle colonne -->
+
       </tr>
       <tr>
         <td id="ca_pmu_sur">0</td>
